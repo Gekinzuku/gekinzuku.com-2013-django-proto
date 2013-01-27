@@ -16,6 +16,14 @@
 	font-size: 1.5em;
 }
 
+.board-even {
+	background-color: white;
+}
+
+.board-odd {
+	background-color: black;
+}
+
 .board-title {
 	line-height: 1.25em;
 	font-size: 1.25em;
