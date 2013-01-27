@@ -9,3 +9,11 @@
 	box-shadow: 0 1px 0 #454545;
 	padding: 20px;
 }
+
+.cat-title {
+	line-height: 2em;
+}
+
+.board-title {
+	line-height: 1.25em;
+}
