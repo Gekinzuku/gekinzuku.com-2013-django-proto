@@ -17,11 +17,11 @@
 }
 
 .board-even {
-	background-color: white;
+	background-color: #454545;
 }
 
 .board-odd {
-	background-color: black;
+	background-color: #333333;
 }
 
 .board-title {
