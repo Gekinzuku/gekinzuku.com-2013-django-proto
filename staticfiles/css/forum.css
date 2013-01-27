@@ -17,13 +17,15 @@
 }
 
 .board-even {
-	background-color: #222;
+	background-color: #282828;
+	border: 1px solid #454545;
+	margin: 5px 0px;
 }
 
 .board-odd {
 	background-color: #343434;
-	border-top: 1px solid #454545;
-	border-bottom: 1px solid #454545;
+	border: 1px solid #454545;
+	margin: 5px 0px;
 }
 
 .board-title {
