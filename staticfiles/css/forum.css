@@ -1,5 +1,5 @@
 .category {
-	width: 900px;
+	width: 860px;
 	margin: 0 auto;
 	background-color: #222222;
 	opacity: 0.9;
@@ -7,4 +7,5 @@
 	-moz-box-shadow: 0px 1px 0px #454545;
 	-webkit-box-shadow: 0px 1px 0px #454545;
 	box-shadow: 0 1px 0 #454545;
+	padding: 20px;
 }
