@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Gekinzuku Forum{% endblock %}
+
+{% block content %}
+
+{% for category in category_list %}
+    <div class="category">
+        <h3 class="cat-title">Category: {{ category.title }}</h3>
+    {% for board in category.get_boards %}
+        <div class="board">
+            <h4 class="board-title">Board: <a href="/forum/{{ board.get_URL }}">{{ board.title }}</a></h4>
+            <p class="board-description">{{ board.description }}</p>
+
+            <p class="board-topic-count-title">Topics</p> 
+            <p class="board-topic-count">{{ board.get_topic_count }}</p>
+            
+            <p class="board-post-count-title">Posts</p>
+            <p class="board-post-count">{{ board.get_total_post_count }}</p>
+            
+            <p class="board-last-post-info-title">Last Post Info</p>
+            <p class="board-last-post-info">{% if board.get_total_post_count > 0 %}{{ board.get_most_recent_topic.get_last_reply_author.user.username }}{% endif %}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endfor %}
+
+{% endblock %}
+

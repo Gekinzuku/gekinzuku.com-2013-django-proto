@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+
+{% block title %}Gekinzuku - Home Page{% endblock %}
+
+{% block content %}
+    {% if thread %}
+        Topic: {{ thread.topic }}<br />
+        Content: <br/>
+        {{ thread.post_set.all.0.content|linebreaks }}
+    {% endif %}
+{% endblock %}

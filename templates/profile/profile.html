@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile.user.username }}'s Profile{% endblock %}
+
+{% block content %}
+
+{% if user == profile.user %}
+<div class="profile-actions">
+   <p class="profile-settings"><a href="/profile/settings/">Settings</a></p>
+   <p class="profile-edit"><a href="/profile/edit/">Edit Profile</a></p> 
+</div> 
+{% endif %}
+
+<div class="profile">
+    <p class="profile-username">{{ profile.user.username }}</p>
+    <p class="profile-group">{{ profile.group }}</p>
+    <p class="profile-rank">{{ profile.rank }}</p>
+    <p class="profile-posts-title">Posts:</p>
+    <p class="profile-posts">{{ profile.get_num_posts }}</p>
+    {% if profile.show_email %}
+    <p class="profile-email-title">Email:</p>
+    <p class="profile-email">{{ profile.user.email }}</p>
+    {% endif %}
+    <p class="profile-karma-title">Karma:</p>
+    <p class="profile-karma">{{ profile.karma }}</p>
+</div>
+
+
+{% endblock %}
+

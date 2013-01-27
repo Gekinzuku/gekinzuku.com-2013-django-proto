@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>{% block title %}Gekinzuku{% endblock %}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name"description" content="We're Gekinzuku, a small indie game group from the midwest.">
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/nivo-slider.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  		<script src="/static/scripts/scripts.js"></script>
+  		<script src="/static/scripts/jquery.nivo.slider.js"></script>
+  		<script src="/static/scripts/jquery.nivo.slider.pack.js"></script>
+	</head>
+
+	<body>
+		<div id="top">
+			<div class="grid-1">
+				<div class="grid-3 left" id="logo">Gekinzuku</div>
+				
+				<div class="grid-2-3 right" id="nav">
+					<ul>
+						<li><a href="#">Games</a></li>
+						<li><a href="#">Store</a></li>
+						<li><a href="#">Forums</a></li>
+						<li><a href="#">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="main" class="grid-1">
+            {% block welcome %}
+                {% if user.is_authenticated %}
+                    <p>Welcome, {{ user.username }}. <a href="/logout/">Logout</a>{% if not user.is_active %} Haven't received the activation email? Resend{% endif %}</p>
+                {% else %}
+                    <p>Welcome, guest. Please <a href="/login/">login</a> or <a href="/register/">register</a>.</p>
+                {% endif %}
+            {% endblock %}
+            {% block content %}{% endblock %}
+		</div>
+
+        <div id="footer" class="grid-1">
+            {% block footer %}Copyright &copy; 2012 Gekinzuku{% endblock %}
+        </div>
+	</body>
+</html>

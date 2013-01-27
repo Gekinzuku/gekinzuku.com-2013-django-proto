@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Gekinzuku Forum - {{ board.title }}{% endblock %}
+
+{% block content %}
+<br />
+
+<div class="navigation">
+    <a href="/forum/">Gekinzuku Forum</a> >
+    <a href="/forum/">{{ board.category.title }}</a> >
+    <a href="/forum/{{ board.get_URL }}">{{ board.title }}</a>
+</div>
+
+<div class="board-info">
+    <h3 class="board-title">{{ board.title }}</h3>
+    <p class="board-description">{{ board.description }}</p>
+</div>
+
+<div class="board-actions">
+    {% if perms.forum.add_topic %}
+        <p class="board-new"><a href="/forum/{{ board.pk }}/post/">New Topic</a></p>{% endif %}
+</div>
+
+{% for topic in board.get_topics %}
+    <div class="topic">
+        <h4 class="topic-title"><a href="/forum/{{ topic.get_URL }}">{{ topic.title }}</a></h4>
+        <p class="topic-started">Started by {{ topic.get_author }} on {{ topic.get_date_started }}</p>
+        <p class="topic-replies">{{ topic.get_reply_count }} repl{{ topic.get_reply_count|pluralize:"y,ies" }}</p>
+        <p class="topic-views">0 views</p>
+        <p class="topic-last-post">{{ topic.get_last_reply_author }}, {{ topic.get_date_last_reply }}</p>
+    </div><br />
+{% endfor %}
+
+{% endblock %}
+

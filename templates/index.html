@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Gekinzuku - Home Page{% endblock %}
+
+{% block content %}
+    {% if threads %}
+        Recent posts:<br/>
+        <ul>
+        {% for thread in threads %}
+            <li><a href="{{ thread.id }}/">{{ thread.topic }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts.</p>
+    {% endif %}
+{% endblock %}
