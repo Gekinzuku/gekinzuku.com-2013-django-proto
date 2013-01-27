@@ -8,7 +8,7 @@
     <div class="category">
         <h3 class="cat-title">Category: {{ category.title }}</h3>
     {% for board in category.get_boards %}
-        <div class="board">
+        <div class="board-{{ forloop.counter|divisibleby:2|yesno:"odd,even"}}">
             <h4 class="board-title">Board: <a href="/forum/{{ board.get_URL }}">{{ board.title }}</a></h4>
             <p class="board-description">{{ board.description }}</p>
 
