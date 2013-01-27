@@ -26,12 +26,7 @@
 						<li><a href="/forum">Forums</a></li>
 						<li><a href="#">About</a></li>
 					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div id="main" class="grid-1">
-            {% block welcome %}
+					{% block welcome %}
                 {% if user.is_authenticated %}
                     <p>Welcome, {{ user.username }}. <a href="/logout/">Logout</a>{% if not user.is_active %} Haven't received the activation email? Resend{% endif %}</p>
                 {% else %}
@@ -39,6 +34,12 @@
                 {% endif %}
             {% endblock %}
             {% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+
+		<div id="main" class="grid-1">
+            
 		</div>
 
         <div id="footer" class="grid-1">
