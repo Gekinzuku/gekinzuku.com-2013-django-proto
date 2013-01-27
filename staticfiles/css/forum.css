@@ -4,9 +4,9 @@
 	background-color: #222222;
 	opacity: 0.9;
 	border: 1px solid #000;
-	-moz-box-shadow: 0px 1px 0px #454545;
-	-webkit-box-shadow: 0px 1px 0px #454545;
-	box-shadow: 0 1px 0 #454545;
+	-moz-box-shadow: 0px 0px 0px 1px #454545;
+	-webkit-box-shadow: 0px 0px 0px 1px #454545;
+	box-shadow: 0px 0px 0px 1px #454545;
 	padding: 20px;
 }
 
