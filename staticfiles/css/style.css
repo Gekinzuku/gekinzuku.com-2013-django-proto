@@ -26,7 +26,8 @@ body {
 
 
 a {
-	color: white;
+	color: #9cddff; 
+	border-bottom: 1px dashed white;
 	text-decoration: none;
 }
 
@@ -111,6 +112,12 @@ h2 {
 	padding-left: 20px;
 	font-family: QuicksandBook, Arial, sans-serif;
 	font-size: 1.5em;
+}
+
+#nav ul li a {
+	color: white;
+	text-decoration: none;
+	border-bottom: none;
 }
 
 #main {

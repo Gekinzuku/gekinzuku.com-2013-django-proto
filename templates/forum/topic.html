@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="navigation">
+<div class="forum-navigation">
     <a href="/forum/">Gekinzuku Forum</a> >
-    <a href="/forum/">{{ topic.board.category.title }}</a> >
+    <a href="/forum/#cat-{{ topic.board.category.position }}">{{ topic.board.category.title }}</a> >
     <a href="/forum/{{ topic.board.get_URL }}">{{ topic.board.title }}</a> >
     <a href="/forum/{{ topic.get_URL }}">{{ topic.title }}</a>
 </div>

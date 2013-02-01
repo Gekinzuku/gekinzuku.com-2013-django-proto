@@ -1,4 +1,4 @@
-.category {
+.category, .topic-container, form {
 	width: 860px;
 	margin: 0 auto;
 	background-color: #222222;
@@ -12,24 +12,98 @@
 }
 
 .cat-title {
-	line-height: 2em;
+	line-height: 1.75em;
 	font-size: 1.5em;
 }
 
-.board-even {
+.board-even, .topic-even {
 	background-color: #282828;
 	border: 1px solid #454545;
-	margin: 5px 0px;
+	margin: 20px 0px;
+	padding: 20px;
+	-moz-box-shadow: 0px 0px 0px 1px #151515;
+	-webkit-box-shadow: 0px 0px 0px 1px #151515;
+	box-shadow: 0px 0px 0px 1px #151515;
 }
 
-.board-odd {
-	background-color: #343434;
+.board-odd, .topic-odd {
+	background-color: #303030;
 	border: 1px solid #454545;
-	margin: 5px 0px;
+	margin: 20px 0px;
+	padding: 20px;
+	-moz-box-shadow: 0px 0px 0px 1px #151515;
+	-webkit-box-shadow: 0px 0px 0px 1px #151515;
+	box-shadow: 0px 0px 0px 1px #151515;
 }
 
 .board-title {
-	line-height: 1.25em;
+	line-height: 1.50em;
 	font-size: 1.25em;
 }
 
+.board p {
+	line-height: 24px;
+}
+
+.forum-navigation {
+	margin-bottom: 18px;
+	margin-top: -36px;
+}
+
+.ui-button .ui-button-text a {
+	border-bottom: none;
+}  
+
+input {
+	background-color: #303030;
+	padding: 1em;
+	border: 1px solid #454545;
+	-moz-box-shadow: 0px 0px 0px 1px #151515;
+	-webkit-box-shadow: 0px 0px 0px 1px #151515;
+	box-shadow: 0px 0px 0px 1px #151515;
+	color: white;
+	margin-bottom: 12px;
+}
+
+form {
+	text-align: center;
+}
+
+.form-label {
+	display: block;
+	width: 100px;
+	float: left;
+	margin-top: 12px;
+}
+
+.form-element {
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+.form-container {
+	width: 315px;
+	margin: 0 auto;
+}
+
+.clr {
+	clear: both;
+}
+
+.tiny {
+	font-size: 10px;
+	line-height: 20px;
+}
+
+.error {
+	border: 1px solid #70a0b9;
+	background-color: #9cddff;
+	padding: 25px;
+	color: black;
+	margin-bottom: 30px;
+}
+
+.close {
+	border-bottom: 1px dotted black;
+}

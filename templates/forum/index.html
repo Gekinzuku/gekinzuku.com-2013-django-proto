@@ -5,21 +5,22 @@
 {% block content %}
 
 {% for category in category_list %}
-    <div class="category">
-        <h3 class="cat-title">Category: {{ category.title }}</h3>
+    <div class="category" id="cat-{{ forloop.counter }}">
+        <h3 class="cat-title">{{ category.title }}</h3>
     {% for board in category.get_boards %}
         <div class="board-{{ forloop.counter|divisibleby:2|yesno:"odd,even"}}">
-            <h4 class="board-title">Board: <a href="/forum/{{ board.get_URL }}">{{ board.title }}</a></h4>
+            <h4 class="board-title"><a href="/forum/{{ board.get_URL }}">{{ board.title }}</a></h4>
             <p class="board-description">{{ board.description }}</p>
+            <br />
+            <p class="board-topic-count-title"><strong>Topics</strong>: <span class="board-topic-count">{{ board.get_topic_count }}</span></p>
+            
+            <p class="board-post-count-title"><strong>Posts</strong>: <span class="board-post-count">{{ board.get_total_post_count }}</span></p>
+            
+            <p class="board-last-post-info-title"><strong>Last Post</strong>:
+            <span class="board-last-post-info">{% if board.get_total_post_count > 0 %} <a href="{{board.get_most_recent_topic.get_URL}}">{{board.get_most_recent_topic.title}}</a> by <a href="/profile/{{board.get_most_recent_topic.get_last_reply_author.user.username }}">{{board.get_most_recent_topic.get_last_reply_author.user.username }}</a>{% endif %}
+            {% if board.get_total_post_count == 0 %}There are no posts in this board.{% endif %}    
 
-            <p class="board-topic-count-title">Topics</p> 
-            <p class="board-topic-count">{{ board.get_topic_count }}</p>
-            
-            <p class="board-post-count-title">Posts</p>
-            <p class="board-post-count">{{ board.get_total_post_count }}</p>
-            
-            <p class="board-last-post-info-title">Last Post Info</p>
-            <p class="board-last-post-info">{% if board.get_total_post_count > 0 %}{{ board.get_most_recent_topic.get_last_reply_author.user.username }}{% endif %}</p>
+            </span> </p>
         </div>
     {% endfor %}
     </div>
