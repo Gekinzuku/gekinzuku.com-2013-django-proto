@@ -10,6 +10,6 @@ urlpatterns = patterns('forum.views',
     url(r'^topic/(?P<TopicID>\d+)/post/$', 'forum_new_post'),
     url(r'^topic/(?P<TopicID>\d+)/delete/$', 'forum_delete_topic'),
     url(r'^post/(?P<PostID>\d+)/delete/$', 'forum_delete_post'),
-    url(r'^topic/(?P<TopicID>\d+)/edit/$', 'forum_edit_post'),
+    url(r'^post/(?P<PostID>\d+)/edit/$', 'forum_edit_post'),
     
 )

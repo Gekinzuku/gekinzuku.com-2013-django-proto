@@ -6,7 +6,7 @@
 
 <div class="forum-navigation">
     <a href="/forum/">Gekinzuku Forum</a> >
-    <a href="/forum/">{{ board.category.title }}</a> >
+    <a href="/forum/#cat-{{ board.category.position }}">{{ board.category.title }}</a> >
     <a href="/forum/{{ board.get_URL }}">{{ board.title }}</a>
 </div>
 <div class="topic-container">
@@ -17,27 +17,40 @@
     <br />
     <div class="board-actions">
         {% if perms.forum.add_topic and board.get_total_post_count != 0 %}
-            <p class="board-new"><a href="/forum/{{ board.pk }}/post/">New Topic</a></p>
+            <span class="board-new"><a href="/forum/{{ board.pk }}/post/">New Topic</a></span>
         {% endif %}
         
         {% if not perms.forum.add_topic and board.get_total_post_count == 0 %}
-        	<p>There are no posts in this board. </p>
+        	<p>You do not have permission to post in this board.</p>
+        	<p>There are no threads in this board. </p>
         {% endif %} 
         
         {% if perms.forum.add_topic and board.get_total_post_count == 0 %}
         	<p class="board-new"><a href="/forum/{{ board.pk }}/post/">New Topic</a></p>
         	<br />
-        	<p>There are no posts in this board. </p>
+        	<p>There are no threads in this board. </p>
         {% endif %} 
     </div>
 
     {% for topic in board.get_topics %}
         <div class="topic-{{ forloop.counter|divisibleby:2|yesno:"odd,even"}}">
+            
             <h4 class="topic-title"><a href="/forum/{{ topic.get_URL }}">{{ topic.title }}</a></h4>
-            <p class="topic-started">Started by {{ topic.get_author }} on {{ topic.get_date_started }}</p>
-            <p class="topic-replies">{{ topic.get_reply_count }} repl{{ topic.get_reply_count|pluralize:"y,ies" }}</p>
-            <p class="topic-views">0 views</p>
-            <p class="topic-last-post">{{ topic.get_last_reply_author }}, {{ topic.get_date_last_reply }}</p>
+            
+            <div class="board-post-information">
+	            <p class="topic-started">Started by {{ topic.get_author }} on {{ topic.get_date_started }}</p>
+	            <p class="topic-replies">Replies: {{ topic.get_reply_count }} </p>
+	            <p class="topic-views">Views: 0</p>
+	            <p class="topic-last-post">Last reply: {{ topic.get_last_reply_author }}, {{ topic.get_date_last_reply }}</p>
+	        </div>
+            
+            <div class="board-post-actions">
+	            {% if perms.forum.add_post %}
+	        	<p class="topic-reply"><a href="/forum/topic/{{ topic.pk }}/post/">Reply</a></p>{% endif %}
+	   			 {% if topic.get_author.user == user and perms.forum.delete_topic or perms.forum.delete_other_topic %}
+	       		 <p class="topic-delete"><a href="/forum/topic/{{ topic.pk }}/delete/">Delete</a></p>{% endif %}
+       		 </div>
+
         </div>
     {% endfor %}
 

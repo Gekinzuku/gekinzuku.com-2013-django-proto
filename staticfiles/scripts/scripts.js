@@ -8,7 +8,7 @@ $(document).ready(function(){
   	prevText: '&larr;',
   	nextText: '&rarr;'
   }); */
-  
+
   $("#nav a").mouseover(function() {
     $(this).animate({ color: "#9cddff" }, 400);
     $(this).mouseout(function() {
@@ -16,11 +16,23 @@ $(document).ready(function(){
     });
   });
 
+  $(".topic-even, .topic-odd").mouseover(function() {
+  	$(this).children(".board-post-actions").show();
+  	$(this).mouseout(function() {
+  		$(this).children(".board-post-actions").hide();
+  	})
+  })
+
   $(function() {
-    $( ".board-new a" ).button();
-    $("input[value='Post']").button({
+    $( ".board-new" ).button();
+    $(".topic-reply").button({
       icons: {
-        primary: "ui-icon-locked"
+        primary: "ui-icon-arrowthick-1-e"
+      }
+    });
+     $(".topic-delete").button({
+      icons: {
+        primary: "ui-icon-closethick"
       }
     });
     $(".close").click(function() {

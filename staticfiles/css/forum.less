@@ -1,0 +1,141 @@
+@base-url: "/static/i/";
+@bg-color: #222222;
+@box-shadow: #454545;
+@dark-box-shadow: #151515;
+@link-color: #9cddff;
+
+.category, .topic-container, form {
+	width: 860px;
+	margin: 0 auto;
+	background-color: @bg-color;
+	opacity: 0.9;
+	border: 1px solid #000;
+	-moz-box-shadow: 0px 0px 0px 1px @box-shadow;
+	-webkit-box-shadow: 0px 0px 0px 1px @box-shadow;
+	box-shadow: 0px 0px 0px 1px @box-shadow;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.cat-title {
+	line-height: 1.75em;
+	font-size: 1.5em;
+}
+
+.board-even, .topic-even {
+	background-color: #282828;
+	border: 1px solid @box-shadow;
+	margin: 20px 0px;
+	padding: 20px;
+	-moz-box-shadow: 0px 0px 0px 1px #151515;
+	-webkit-box-shadow: 0px 0px 0px 1px #151515;
+	box-shadow: 0px 0px 0px 1px #151515;
+}
+
+.board-odd, .topic-odd {
+	background-color: #303030;
+	border: 1px solid @box-shadow;
+	margin: 20px 0px;
+	padding: 20px;
+	-moz-box-shadow: 0px 0px 0px 1px #151515;
+	-webkit-box-shadow: 0px 0px 0px 1px #151515;
+	box-shadow: 0px 0px 0px 1px #151515;
+}
+
+
+.board-title {
+	line-height: 1.50em;
+	font-size: 1.25em;
+}
+
+.board p {
+	line-height: 24px;
+}
+
+.forum-navigation {
+	margin-bottom: 18px;
+	margin-top: -36px;
+}
+
+.ui-button .ui-button-text a {
+	border-bottom: none;
+}  
+
+input, textarea {
+	background-color: #303030;
+	padding: 1em;
+	border: 1px solid @box-shadow;
+	-moz-box-shadow: 0px 0px 0px 1px @dark-box-shadow;
+	-webkit-box-shadow: 0px 0px 0px 1px @dark-box-shadow;
+	box-shadow: 0px 0px 0px 1px @dark-box-shadow;
+	color: @link-color;
+	margin-bottom: 12px;
+	
+	&[type="submit"]:hover, &:focus {
+	  background-color: @box-shadow;
+	  border: 1px solid #676767;
+	  color: white;
+	}
+	
+}
+
+form {
+	text-align: center;
+}
+
+.form-label {
+	display: block;
+	width: 100px;
+	float: left;
+	margin-top: 12px;
+}
+
+.form-element {
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+.form-container {
+	width: 315px;
+	margin: 0 auto;
+}
+
+.clr {
+	clear: both;
+}
+
+.tiny {
+	font-size: 10px;
+	line-height: 20px;
+}
+
+.error {
+	border: 1px solid #70a0b9;
+	background-color: @link-color;
+	padding: 25px;
+	color: black;
+	margin-bottom: 30px;
+}
+
+.close {
+	border-bottom: 1px dotted black;
+}
+
+.topic-title {
+	font-size: 1.2em;
+	line-height: 0.75em;
+}
+
+.board-post-actions {
+	display: none;
+	width: 300px;
+	float: right;
+	margin-top: -80px;
+}
+
+#id_body {
+  width: 500px;
+  height: 250px;
+  overflow: scroll;
+}

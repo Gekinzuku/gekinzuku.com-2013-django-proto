@@ -1,0 +1,143 @@
+@base-url: "/static/i/";
+@bg-color: #222222;
+@box-shadow: #454545;
+@link-color: #9cddff;
+
+html * {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: none;
+}
+
+@font-face {
+    font-family: QuicksandLight;
+    src: url("fonts/Quicksand_Light.otf");
+    font-weight:400;
+}
+
+@font-face {
+    font-family: QuicksandBook;
+    src: url("fonts/Quicksand_Book.otf");
+    font-weight:400;
+}
+
+body {
+	background-color: #343434;
+	background-image: url("/static/i/bg.png");
+	font-family: QuicksandLight;
+	color: #EEE;
+}
+
+
+a {
+	color: @link-color; 
+	border-bottom: 1px dashed white;
+	text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid @link-color;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: @link-color; 
+}
+
+h1 {
+	font-size: 1.5em;
+	margin: 1em 0px;
+}
+
+h2 {
+	font-size: 1.25em;
+	margin: 1em 0px;
+}
+
+h3 {
+	margin: 0.75em 0px;
+}
+
+h4 {
+	margin: 0.75em 0px;
+}
+/* 1/1 */
+.grid-1 {
+	width: 920px;
+	display: block;
+	margin: 0 auto;
+}
+
+/* 1/2 */
+.grid-2 {
+	width: 400px;
+	display: block;
+}
+
+/* 1/3 */
+.grid-3 {
+	width: 286px;
+	display: block;
+}
+
+/* 2/3 */
+.grid-2-3 {
+	width: 572px;
+	display: block;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+#top {
+	background-color: @bg-color;
+	height: 120px;
+	opacity: 0.9;
+	border-bottom: 1px solid #000;
+	-moz-box-shadow: 0px 1px 0px @box-shadow; /* Firefox 3.6 and earlier */
+  -webkit-box-shadow: 0px 1px 0px @box-shadow; /* Safari and Chrome */
+	box-shadow: 0 1px 0 @box-shadow;
+}
+
+#logo {
+	background-image: url("@{base-url}logo.png");
+	width: 286px;
+	height: 119px;
+	text-indent: -90000px;
+}
+
+#nav {
+	float: right;
+	text-align: right;
+	margin-top: 10px
+}
+
+#nav ul li {
+	display: inline;
+	line-height: 70px;
+	padding-left: 20px;
+	font-family: QuicksandBook, Arial, sans-serif;
+	font-size: 1.5em;
+}
+
+#nav ul li a {
+	color: white;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+#main {
+	margin: 50px auto;
+}
+
+p {
+	line-height: 24px;
+}

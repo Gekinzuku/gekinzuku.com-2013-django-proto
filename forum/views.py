@@ -50,7 +50,7 @@ def forum_new_topic(Request, BoardID):
     CurrBoard = get_object_or_404(Board, pk=BoardID)
 
     if Request.method == 'POST':
-        form = NewTopicForm(Request.POST)
+        form = NewTopicForm(Request.POST, auto_id=True)
         if form.is_valid():
             time = timezone.now()
 
@@ -62,7 +62,7 @@ def forum_new_topic(Request, BoardID):
 
             return HttpResponseRedirect('/forum')
     else:
-        form = NewTopicForm()
+        form = NewTopicForm(auto_id=True)
 
     return render_to_response('forum/new_topic.html', {'form': form}, context_instance=RequestContext(Request))
 
@@ -76,7 +76,7 @@ def forum_new_post(Request, TopicID):
     CurrTopic = get_object_or_404(Topic, pk=TopicID)
 
     if Request.method == 'POST':
-        form = NewPostForm(Request.POST)
+        form = NewPostForm(Request.POST, auto_id=True)
         if form.is_valid():
             time = timezone.now()
 
@@ -85,7 +85,7 @@ def forum_new_post(Request, TopicID):
             
             return HttpResponseRedirect('/forum')
     else:
-        form = NewPostForm()
+        form = NewPostForm(auto_id=True)
 
     return render_to_response('forum/new_topic.html', {'form': form}, context_instance=RequestContext(Request))
 
@@ -104,14 +104,14 @@ def forum_delete_topic(Request, TopicID):
         raise Http404
 
     if Request.method == 'POST':
-        form = DeleteTopicForm(Request.POST)
+        form = DeleteTopicForm(Request.POST, auto_id=True)
         if form.is_valid():
             url = '/forum/' + CurrTopic.board.get_URL()
             CurrTopic.delete()
 
             return HttpResponseRedirect(url)
     else:
-        form = DeleteTopicForm()
+        form = DeleteTopicForm(auto_id=True)
 
     return render_to_response('forum/delete_topic.html', {'form': form}, context_instance=RequestContext(Request))
 
@@ -128,16 +128,31 @@ def forum_delete_post(Request, PostID):
         raise Http404
 
     if Request.method == 'POST':
-        form = DeletePostForm(Request.POST)
+        form = DeletePostForm(Request.POST, auto_id=True)
         if form.is_valid():
             url = "/forum/" + CurrPost.topic.get_URL()
             CurrPost.delete()
 
             return HttpResponseRedirect(url)
     else:
-        form = DeletePostForm()
+        form = DeletePostForm(auto_id=True)
 
     return render_to_response('forum/delete_post.html', {'form': form}, context_instance=RequestContext(Request))
 
 def forum_edit_post(Request, PostID):
-    pass
+    CurrPost = get_object_or_404(Post, pk=PostID)
+
+    if Request.method == 'POST':
+        form = NewPostForm(Request.POST, auto_id=True)
+        if form.is_valid():
+            time = timezone.now()
+
+            CurrPost.body = form.cleaned_data['body']
+            CurrPost.save()
+
+            return HttpResponseRedirect('/forum')
+    else:
+        data = {'body': CurrPost.body}
+        form = NewPostForm(data, auto_id=True)
+
+    return render_to_response('forum/new_post.html', {'form': form}, context_instance=RequestContext(Request))

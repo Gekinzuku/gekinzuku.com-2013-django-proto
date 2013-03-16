@@ -8,7 +8,9 @@
 
 <form action="" method="post">
 {% csrf_token %}
-{{ form.as_p }}
+{{ form.subject.html_name }}<br/ >
+<input name="title" type="text" value="{% if form.subject.value %}{{ form.subject.value }}{% endif %}" />
+<textarea rows="10" cols="26">{% if form.body.value %}{{ form.body.value }}{% endif %}</textarea>
 <input type="submit" value="Post" />
 </form>
 
